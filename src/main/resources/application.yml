@@ -49,6 +49,15 @@ ss-parser:
     replace: "Район: <b>${region}</b><br/>Адрес: <b>${address}</b><br/>Комнат: <b>${rooms}</b><br/>Площадь: <b>${area} м2</b><br/>Этаж: <b>${floor}/${floors}</b><br/>Серия: <b>${series}</b><br/>Цена за м2: <b>${ppm2} €</b><br/>Цена: <b>${price} €</b>"
     expression: true
 
+  tukums-sell:
+    enabled: false
+    rate: 10m
+    url: https://www.ss.com/ru/real-estate/flats/tukums-and-reg/sell/rss/
+    timeout: 10s
+    regex: "(?s:Город/волость: (<b>)+(?<region>.+?)(</b>)+(?<address>.+?).+?Цена: (<b>)+(?<price>[\\d,]+)(</b>)?  €)"
+    replace: "Район: <b>${region}</b><br/>Адрес: <b>${address}</b>><br/>Цена: <b>${price} €</b>"
+    expression: true
+
   home:
     enabled: false
     rate: 10m
