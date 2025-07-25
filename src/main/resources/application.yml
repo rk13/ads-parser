@@ -43,7 +43,7 @@ ss-parser:
   flat-sell:
     enabled: true
     rate: 10m
-    url: https://www.ss.com/ru/real-estate/flats/tukums-and-reg/sell/rss/
+    url: https://www.ss.lv/ru/real-estate/flats/daugavpils-and-reg/daugavpils/sell/rss/
     timeout: 10s
     regex: "(?s:Город/волость: (<b>)+(?<region>.+?)(</b>)+(?<address>.+?).+?Цена: (<b>)+(?<price>[\\d,]+)(</b>)?  €)"
     replace: "Район: <b>${region}</b><br/>Адрес: <b>${address}</b>><br/>Цена: <b>${price} €</b>"
