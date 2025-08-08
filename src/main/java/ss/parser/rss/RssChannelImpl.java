@@ -78,11 +78,11 @@ public class RssChannelImpl extends RssElementImpl implements RssChannel {
 
     private List<Ad> parseAds() {
         String tmpReplace = "Адрес: <b>${address}</b><br/>" +
-"Комнат: <b>${rooms}</b><br/>" +
-"Площадь: <b>${area} м2</b><br/>" +
-"Этаж: <b>${floor}/${floors}</b><br/>" +
-"Серия: <b>${series}</b><br/>" +
-"Цена: <b>${price} €</b>";
+        "Комнат: <b>${rooms}</b><br/>" +
+        "Площадь: <b>${area} м2</b><br/>" +
+        "Этаж: <b>${floor}/${floors}</b><br/>" +
+        "Серия: <b>${series}</b><br/>" +
+        "Цена: <b>${price} €</b>";
         NodeList nodeList = getElement().getElementsByTagName("item");
         List<Ad> ads = new ArrayList<>(nodeList.getLength());
         for (int i = 0; i < nodeList.getLength(); i++) {
