@@ -43,11 +43,23 @@ ss-parser:
   flat-sell:
     enabled: true
     rate: 10m
-    url: https://www.ss.lv/ru/real-estate/flats/daugavpils-and-reg/daugavpils/sell/rss/
+    url: https://www.ss.lv/lv/real-estate/flats/daugavpils-and-reg/daugavpils/sell/rss/
     timeout: 10s
-    regex: "(?s:Город/волость: (<b>)+(?<region>.+?)(</b>)+(?<address>.+?).+?Цена: (<b>)+(?<price>[\\d,]+)(</b>)?  €)"
-    replace: "Район: <b>${region}</b><br/>Адрес: <b>${address}</b>><br/>Цена: <b>${price} €</b>"
-    expression: true
+  regex: |
+    Iela: <b>(?<address>.+?)</b><br/>\s*
+    Ist.: <b>(?<rooms>\d+)</b><br/>\s*
+    m²: <b>(?<area>\d+)</b><br/>\s*
+    Stāvs: <b>(?<floor>\d+)/(?<floors>\d+)</b><br/>\s*
+    Sērija: <b>(?<series>.+?)</b><br/>\s*
+    .*Cena: <b>(?<price>[\d.,]+) €
+  replace: |
+    Адрес: <b>\${address}</b><br/>
+    Комнат: <b>\${rooms}</b><br/>
+    Площадь: <b>\${area} м2</b><br/>
+    Этаж: <b>\${floor}/\${floors}</b><br/>
+    Серия: <b>\${series}</b><br/>
+    Цена: <b>\${price} €</b>
+  expression: true
 
   home:
     enabled: false
